@@ -10,3 +10,15 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 class ForgetPasswordSerializer(serializers.Serializer):
     email = serializers.EmailField()
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = [
+            "id", "username", "first_name", "last_name", "email", "phone_number", "profile_image", "bio", "city", "state", "country", "pincode", "latitude", "longitude", "is_verified", "created_at",
+        ]
+        read_only_fields = [
+            "id",
+            "is_verified",
+            "created_at"
+        ]
