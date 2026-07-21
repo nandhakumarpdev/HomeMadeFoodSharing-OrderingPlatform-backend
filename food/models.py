@@ -25,7 +25,7 @@ class FoodPost(models.Model):
 
     STATUS_CHOICES = [
         ("COMING_SOON", "Coming Soon"),
-        ("AVAILABLE", "Avialable"),
+        ("AVAILABLE", "Available"),
         ("SOLD_OUT", "Sold out"),
         ("EXPIRED", "Expired"),
     ]
@@ -37,7 +37,7 @@ class FoodPost(models.Model):
     )
 
     food_name = models.CharField(max_length=150)
-    description = models.TextField(blank=True)
+    food_description = models.TextField(blank=True)
     meals_type = models.CharField(max_length=20, choices=MEAL_TYPE_CHOICES)
     
     quantity_available = models.PositiveIntegerField()
