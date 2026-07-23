@@ -24,6 +24,13 @@ class UserRegister(APIView):
     serializer_class = RegisterSerializer
     
     def post(self, request):
+        
+        if request.data.get("password") is None or request.data.get("email") is None:
+            return Response(
+                    {"error": "email or password missing."},
+                    status=status.HTTP_400_BAD_REQUEST
+            )
+        
         serializer = self.serializer_class(data=request.data)
 
         if serializer.is_valid():
